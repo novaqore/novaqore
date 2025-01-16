@@ -1,0 +1,12 @@
+{
+  "name": "novaqore",
+  "version": "1.0.0",
+  "description": "Welcome to the NovaQore GitHub repository! We're a research-driven company dedicated to democratizing the future of software development and digital solutions by bridging the gap between cutting-edge research and practical application.  We empower developers of all backgrounds with the resources and tools they need to contribute to the evolving tech landscape.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
