@@ -1,5 +1,5 @@
 lspci -nn | grep -E 'VGA|Display' #Check for GPUs
-
+#Advanced Micro Devices, Inc. [AMD/ATI] Navi 12 [Radeon Pro V520/V540] [1002:7362] (rev c3)
 
 sudo apt-get update --fix-missing && sudo apt-get upgrade -y
 sudo apt install build-essential -y
