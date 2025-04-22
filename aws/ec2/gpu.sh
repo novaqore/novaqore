@@ -1,3 +1,6 @@
+lspci -nn | grep -E 'VGA|Display' #Check for GPUs
+
+
 sudo apt-get update --fix-missing && sudo apt-get upgrade -y
 sudo apt install build-essential -y
 sudo apt install linux-firmware linux-modules-extra-aws -y
