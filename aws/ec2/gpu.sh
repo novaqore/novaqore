@@ -14,3 +14,5 @@ sudo apt-get -y install cuda-toolkit-12-8
 echo 'export PATH=/usr/local/cuda-12.8/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 sudo apt-get install -y nvidia-open
+# Optional
+sudo apt install python3.12-venv
