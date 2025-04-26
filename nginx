@@ -1,0 +1,48 @@
+
+
+server {
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    add_header X-Powered-By "NovaQore AI";
+    gzip on;
+    gzip_types text/plain application/json text/css;
+    server_name api.novaqore.ai;
+
+	location / {
+        proxy_pass http://127.0.0.1:5000/;
+    }
+
+    location = /health {
+    	default_type application/json;
+    	return 200 '{"status":"ok","uptime":"100%","service":"NovaQore API"}';
+	}
+
+    location /api {
+        proxy_pass http://127.0.0.1:5000/;
+    }
+
+    location /admin {
+        auth_basic "Admin Area";
+        auth_basic_user_file /etc/nginx/.htpasswd;
+        root /var/www/html;
+        index index.html;
+    }
+
+    listen [::]:443 ssl ipv6only=on; 
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/api.novaqore.ai/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/api.novaqore.ai/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
+
+server {
+    if ($host = api.novaqore.ai) {
+        return 301 https://$host$request_uri;
+    }
+
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name api.novaqore.ai;
+    return 404;
+}
