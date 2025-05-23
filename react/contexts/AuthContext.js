@@ -1,7 +1,8 @@
 // contexts/AuthContext.js
+"use client"
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../lib/firebase/init';
+import { auth } from '@/lib/firebase/init';
 
 const AuthContext = createContext();
 
